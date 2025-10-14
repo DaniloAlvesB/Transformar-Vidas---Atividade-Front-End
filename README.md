@@ -8,7 +8,7 @@
 
 **Projeto Acadêmico Completo de Front-end para Gerenciamento de Organizações do Terceiro Setor**
 
-[📖 Documentação](#-documentação) • [🚀 Instalação](#-como-executar) • [🎯 Funcionalidades](#-funcionalidades) • [📸 Screenshots](#-demonstração)
+[📖 Documentação](#-documentação) • [🚀 Instalação](#-como-executar) • [🎯 Funcionalidades](#-funcionalidades)
 
 </div>
 
@@ -543,26 +543,6 @@ localStorage.setItem('adminCredentials', JSON.stringify({...}))
 - ❌ Mensagem de erro abaixo do campo
 - 💚 Mensagem de sucesso após envio
 - 🔄 Loading states (simulados)
-
----
-
-## 📸 Demonstração
-
-### 🖼️ Capturas de Tela
-
-#### Desktop View
-- **Home**: Hero + Estatísticas + Projetos
-- **Projetos**: Grid com filtros e busca
-- **Voluntariado**: Oportunidades + Formulário
-- **Doações**: Valores + Modal de pagamento
-- **Blog**: Posts + Newsletter
-- **Admin**: Dashboard + Tabelas
-
-#### Mobile View
-- Menu hambúrguer responsivo
-- Cards empilhados verticalmente
-- Formulários adaptados
-- Botões touch-friendly
 
 ---
 
