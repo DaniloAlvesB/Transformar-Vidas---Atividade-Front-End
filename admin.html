@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Painel Administrativo - ONG Transformar Vidas">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Painel Admin - ONG Transformar Vidas</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-container">
+        <div class="login-box">
+            <h1>Painel Administrativo</h1>
+            <p>ONG Transformar Vidas</p>
+
+            <form id="admin-login-form">
+                <div class="form-group">
+                    <label for="admin-username">Usuário</label>
+                    <input type="text" id="admin-username" required autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="admin-password">Senha</label>
+                    <input type="password" id="admin-password" required autocomplete="current-password">
+                </div>
+
+                <div id="login-error" class="error-message" role="alert" style="display: none;"></div>
+
+                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+
+                <p class="login-help">Usuário: admin | Senha: admin123</p>
+            </form>
+
+            <a href="index.html" class="back-link">← Voltar para o site</a>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" style="display: none;">
+        <header class="admin-header">
+            <div class="container">
+                <div class="admin-nav">
+                    <h1>Painel Admin</h1>
+                    <div class="admin-user">
+                        <span id="admin-user-name">Admin</span>
+                        <button id="admin-logout" class="btn btn-secondary">Sair</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="admin-layout">
+            <!-- Sidebar -->
+            <aside class="admin-sidebar">
+                <nav>
+                    <button class="sidebar-link active" data-section="dashboard">📊 Dashboard</button>
+                    <button class="sidebar-link" data-section="projects">📁 Projetos</button>
+                    <button class="sidebar-link" data-section="volunteers">👥 Voluntários</button>
+                    <button class="sidebar-link" data-section="donations">💰 Doações</button>
+                    <button class="sidebar-link" data-section="blog">📝 Blog</button>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="admin-content">
+                <!-- Dashboard Section -->
+                <section id="section-dashboard" class="admin-section active">
+                    <h2>Dashboard</h2>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Projetos Ativos</h3>
+                            <p class="stat-number" id="dash-projects">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Voluntários</h3>
+                            <p class="stat-number" id="dash-volunteers">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Doações (mês)</h3>
+                            <p class="stat-number" id="dash-donations">R$ 0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Posts no Blog</h3>
+                            <p class="stat-number" id="dash-posts">0</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects Section -->
+                <section id="section-projects" class="admin-section">
+                    <div class="section-header">
+                        <h2>Gerenciar Projetos</h2>
+                        <button class="btn btn-primary" onclick="openProjectForm()">+ Novo Projeto</button>
+                    </div>
+
+                    <div id="projects-table" class="data-table"></div>
+                </section>
+
+                <!-- Volunteers Section -->
+                <section id="section-volunteers" class="admin-section">
+                    <h2>Voluntários Cadastrados</h2>
+                    <div id="volunteers-table" class="data-table"></div>
+                </section>
+
+                <!-- Donations Section -->
+                <section id="section-donations" class="admin-section">
+                    <h2>Histórico de Doações</h2>
+                    <div id="donations-table" class="data-table"></div>
+                </section>
+
+                <!-- Blog Section -->
+                <section id="section-blog" class="admin-section">
+                    <div class="section-header">
+                        <h2>Gerenciar Blog</h2>
+                        <button class="btn btn-primary" onclick="openBlogForm()">+ Nova Publicação</button>
+                    </div>
+
+                    <div id="blog-table" class="data-table"></div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal para formulários -->
+    <div id="admin-modal" class="modal" role="dialog" aria-hidden="true">
+        <div class="modal-overlay" data-close-modal></div>
+        <div class="modal-content">
+            <button class="modal-close" data-close-modal>×</button>
+            <div id="admin-modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

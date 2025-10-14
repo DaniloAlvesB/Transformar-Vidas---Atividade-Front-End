@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Faça sua doação para a ONG Transformar Vidas. Acompanhe campanhas, metas de arrecadação e veja o impacto das suas contribuições.">
+    <meta name="keywords" content="doação, doar, contribuição, campanha social, arrecadação">
+
+    <title>Doações - ONG Transformar Vidas</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav" role="navigation" aria-label="Navegação principal">
+                <div class="logo">
+                    <a href="index.html" aria-label="Página inicial - ONG Transformar Vidas">
+                        <span class="logo-text">Transformar Vidas</span>
+                    </a>
+                </div>
+
+                <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+
+                <ul class="nav-menu" role="menubar">
+                    <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                    <li role="none"><a href="projetos.html" role="menuitem">Projetos</a></li>
+                    <li role="none"><a href="voluntariado.html" role="menuitem">Voluntariado</a></li>
+                    <li role="none"><a href="doacoes.html" role="menuitem" class="active">Doações</a></li>
+                    <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                    <li role="none"><a href="admin.html" role="menuitem" class="btn-admin">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header" aria-labelledby="page-title">
+            <div class="container">
+                <h1 id="page-title">Faça sua Doação</h1>
+                <p class="page-subtitle">Sua contribuição transforma vidas e constrói um futuro melhor</p>
+            </div>
+        </section>
+
+        <!-- Seção: Por que doar? -->
+        <section class="why-donate" aria-labelledby="why-donate-title">
+            <div class="container">
+                <h2 id="why-donate-title">Por Que Sua Doação é Importante?</h2>
+                <div class="impact-grid">
+                    <article class="impact-card">
+                        <div class="impact-icon">💰</div>
+                        <h3>Transparência Total</h3>
+                        <p>100% das doações são aplicadas em projetos sociais. Acompanhe relatórios financeiros mensais.</p>
+                    </article>
+
+                    <article class="impact-card">
+                        <div class="impact-icon">📊</div>
+                        <h3>Impacto Mensurável</h3>
+                        <p>Veja números reais de pessoas impactadas e vidas transformadas com sua contribuição.</p>
+                    </article>
+
+                    <article class="impact-card">
+                        <div class="impact-icon">🎯</div>
+                        <h3>Projetos Certificados</h3>
+                        <p>Todos os projetos são auditados e possuem certificações de órgãos reguladores.</p>
+                    </article>
+
+                    <article class="impact-card">
+                        <div class="impact-icon">📜</div>
+                        <h3>Dedução no IR</h3>
+                        <p>Suas doações podem ser deduzidas do Imposto de Renda conforme legislação vigente.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formas de Doar -->
+        <section class="donation-types" aria-labelledby="donation-types-title">
+            <div class="container">
+                <h2 id="donation-types-title">Formas de Doar</h2>
+
+                <div class="donation-options">
+                    <!-- Doação Única -->
+                    <article class="donation-option-card">
+                        <h3>Doação Única</h3>
+                        <p>Contribua com qualquer valor de forma pontual</p>
+                        <div class="quick-amounts">
+                            <button class="amount-btn-outside" data-amount="20" data-type="single">R$ 20</button>
+                            <button class="amount-btn-outside" data-amount="50" data-type="single">R$ 50</button>
+                            <button class="amount-btn-outside" data-amount="100" data-type="single">R$ 100</button>
+                            <button class="amount-btn-outside" data-amount="200" data-type="single">R$ 200</button>
+                        </div>
+                        <div class="custom-amount">
+                            <label for="custom-amount-single">Ou digite outro valor:</label>
+                            <input type="number" id="custom-amount-single" placeholder="R$ 0,00" min="1" data-type="single">
+                        </div>
+                        <button class="btn btn-primary" onclick="openDonationModal('single', null)">Doar Agora</button>
+                    </article>
+
+                    <!-- Doação Recorrente -->
+                    <article class="donation-option-card featured">
+                        <span class="badge">Mais Impacto</span>
+                        <h3>Doação Mensal</h3>
+                        <p>Seja um doador recorrente e multiplique seu impacto</p>
+                        <div class="quick-amounts">
+                            <button class="amount-btn-outside" data-amount="30" data-type="monthly">R$ 30/mês</button>
+                            <button class="amount-btn-outside" data-amount="50" data-type="monthly">R$ 50/mês</button>
+                            <button class="amount-btn-outside" data-amount="100" data-type="monthly">R$ 100/mês</button>
+                            <button class="amount-btn-outside" data-amount="200" data-type="monthly">R$ 200/mês</button>
+                        </div>
+                        <div class="custom-amount">
+                            <label for="custom-amount-monthly">Ou digite outro valor:</label>
+                            <input type="number" id="custom-amount-monthly" placeholder="R$ 0,00" min="1" data-type="monthly">
+                        </div>
+                        <button class="btn btn-primary" onclick="openDonationModal('monthly', null)">Ser Doador Mensal</button>
+                    </article>
+                </div>
+
+                <!-- Outras formas de doar -->
+                <div class="other-ways">
+                    <h3>Outras Formas de Contribuir</h3>
+                    <div class="ways-grid">
+                        <div class="way-card">
+                            <h4>🏢 Empresa Parceira</h4>
+                            <p>Sua empresa pode fazer parte da transformação social</p>
+                            <a href="#contact">Saiba mais</a>
+                        </div>
+                        <div class="way-card">
+                            <h4>🎁 Doação de Itens</h4>
+                            <p>Alimentos, roupas, materiais escolares e mais</p>
+                            <a href="#contact">Saiba mais</a>
+                        </div>
+                        <div class="way-card">
+                            <h4>💼 Nota Fiscal Paulista</h4>
+                            <p>Doe seus créditos de nota fiscal para a ONG</p>
+                            <a href="#contact">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campanhas Ativas -->
+        <section class="campaigns-section" aria-labelledby="campaigns-title">
+            <div class="container">
+                <h2 id="campaigns-title">Campanhas em Andamento</h2>
+                <p class="section-subtitle">Escolha uma campanha específica para apoiar</p>
+
+                <div id="campaigns-list" class="campaigns-grid">
+                    <!-- Campanhas carregadas dinamicamente via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Impacto das Doações -->
+        <section class="donation-impact" aria-labelledby="impact-title">
+            <div class="container">
+                <h2 id="impact-title">Impacto das Doações</h2>
+                <div class="impact-examples">
+                    <div class="impact-example">
+                        <span class="impact-amount">R$ 30</span>
+                        <p>Fornece material escolar completo para 1 criança por 1 mês</p>
+                    </div>
+                    <div class="impact-example">
+                        <span class="impact-amount">R$ 50</span>
+                        <p>Garante 1 cesta básica completa para uma família</p>
+                    </div>
+                    <div class="impact-example">
+                        <span class="impact-amount">R$ 100</span>
+                        <p>Oferece 1 curso profissionalizante para 1 jovem</p>
+                    </div>
+                    <div class="impact-example">
+                        <span class="impact-amount">R$ 200</span>
+                        <p>Mantém 1 criança em atividades culturais por 1 mês</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Relatórios de Transparência -->
+        <section class="transparency-section" aria-labelledby="transparency-title">
+            <div class="container">
+                <h2 id="transparency-title">Transparência e Prestação de Contas</h2>
+                <p>Acreditamos que transparência é fundamental. Veja como suas doações são utilizadas:</p>
+
+                <div class="transparency-chart">
+                    <div class="chart-container">
+                        <h3>Distribuição de Recursos 2024</h3>
+                        <div class="chart-bars">
+                            <div class="chart-bar">
+                                <div class="bar-fill" style="width: 70%;" data-percentage="70"></div>
+                                <span class="bar-label">Projetos Sociais - 70%</span>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="bar-fill" style="width: 20%;" data-percentage="20"></div>
+                                <span class="bar-label">Estrutura e Operação - 20%</span>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="bar-fill" style="width: 10%;" data-percentage="10"></div>
+                                <span class="bar-label">Captação de Recursos - 10%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reports-list">
+                        <h3>Relatórios Disponíveis</h3>
+                        <ul>
+                            <li><a href="#" download>📄 Relatório Anual 2024</a></li>
+                            <li><a href="#" download>📄 Balanço Financeiro 2024</a></li>
+                            <li><a href="#" download>📄 Relatório de Impacto Social</a></li>
+                            <li><a href="#" download>📄 Certificações e Auditorias</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos de Doadores -->
+        <section class="donors-testimonials" aria-labelledby="donors-title">
+            <div class="container">
+                <h2 id="donors-title">O Que Dizem Nossos Doadores</h2>
+                <div class="testimonials-grid">
+                    <article class="testimonial-card">
+                        <p>"Sou doadora mensal há 2 anos e acompanho de perto o impacto positivo. A transparência da ONG me dá total confiança."</p>
+                        <div class="testimonial-author">
+                            <strong>Patricia Mendes</strong>
+                            <span>Doadora desde 2023</span>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <p>"Como empresário, busco investir em causas sérias. A Transformar Vidas demonstra profissionalismo e resultados concretos."</p>
+                        <div class="testimonial-author">
+                            <strong>Roberto Alves</strong>
+                            <span>Parceiro Corporativo</span>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <p>"Minha primeira doação foi pequena, mas ver os relatórios e fotos das ações me motivou a doar mais. Vale cada centavo!"</p>
+                        <div class="testimonial-author">
+                            <strong>Fernanda Lima</strong>
+                            <span>Doadora eventual</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Doação -->
+    <div id="donation-modal" class="modal" role="dialog" aria-labelledby="donation-modal-title" aria-hidden="true">
+        <div class="modal-overlay" data-close-modal></div>
+        <div class="modal-content">
+            <button class="modal-close" data-close-modal aria-label="Fechar modal">×</button>
+            <div class="modal-body">
+                <h3 id="donation-modal-title">Realizar Doação</h3>
+                <p class="modal-subtitle">Preencha os dados abaixo para finalizar sua doação</p>
+
+                <form id="donation-form">
+                    <input type="hidden" id="donation-type" name="donation-type">
+
+                    <div class="form-group">
+                        <label for="donation-amount-display">Valor da Doação</label>
+                        <div class="amount-display" id="donation-amount-display">R$ 0,00</div>
+                        <input type="hidden" id="donation-amount" name="donation-amount">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donor-name">Nome Completo *</label>
+                        <input type="text" id="donor-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donor-email">E-mail *</label>
+                        <input type="email" id="donor-email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donor-cpf">CPF *</label>
+                        <input type="text" id="donor-cpf" placeholder="000.000.000-00" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donor-phone">Telefone</label>
+                        <input type="tel" id="donor-phone" placeholder="(11) 99999-9999">
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Forma de Pagamento</h4>
+                        <div class="payment-methods">
+                            <label class="payment-option">
+                                <input type="radio" name="payment-method" value="credit-card" checked>
+                                <span>💳 Cartão de Crédito</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment-method" value="pix">
+                                <span>📱 PIX</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment-method" value="boleto">
+                                <span>📄 Boleto</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="anonymous-donation">
+                            Quero fazer uma doação anônima
+                        </label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Confirmar Doação</button>
+                        <button type="button" class="btn btn-secondary" data-close-modal>Cancelar</button>
+                    </div>
+                </form>
+
+                <!-- Mensagem de sucesso -->
+                <div id="donation-success" style="display: none;">
+                    <div class="success-icon">✓</div>
+                    <h3>Doação Realizada com Sucesso!</h3>
+                    <p>Agradecemos imensamente sua contribuição. Você receberá um comprovante por e-mail.</p>
+                    <button class="btn btn-primary" data-close-modal>Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <address>
+                        <p>Rua da Solidariedade, 123</p>
+                        <p>São Paulo - SP, 01234-567</p>
+                        <p>Tel: <a href="tel:+551112345678">(11) 1234-5678</a></p>
+                        <p>Email: <a href="mailto:contato@transformarvidas.org.br">contato@transformarvidas.org.br</a></p>
+                    </address>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projetos.html">Projetos</a></li>
+                        <li><a href="voluntariado.html">Voluntariado</a></li>
+                        <li><a href="doacoes.html">Doações</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Transparência</h3>
+                    <ul>
+                        <li><a href="#" aria-label="Baixar relatório de atividades">Relatório de Atividades</a></li>
+                        <li><a href="#" aria-label="Baixar balanço financeiro">Balanço Financeiro</a></li>
+                        <li><a href="#" aria-label="Ver estatuto da ONG">Estatuto</a></li>
+                        <li><a href="#" aria-label="Ver certificações">Certificações</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Visite nosso Facebook" class="social-link">Facebook</a>
+                        <a href="#" aria-label="Visite nosso Instagram" class="social-link">Instagram</a>
+                        <a href="#" aria-label="Visite nosso LinkedIn" class="social-link">LinkedIn</a>
+                        <a href="#" aria-label="Visite nosso YouTube" class="social-link">YouTube</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ONG Transformar Vidas. Todos os direitos reservados.</p>
+                <p>CNPJ: 12.345.678/0001-90</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
