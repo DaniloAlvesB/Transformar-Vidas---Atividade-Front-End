@@ -18,6 +18,7 @@
     <!-- CSS Principal -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/validation-styles.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
 
     <!-- Font do Google Fonts para melhor tipografia -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,6 +76,23 @@
             <h2>Carregando...</h2>
         </div>
     </main>
+
+    <!--
+        THEME SWITCHER: Alternância de temas para acessibilidade
+        Botões para trocar entre modo claro, escuro e alto contraste
+    -->
+    <div class="theme-switcher" role="region" aria-label="Seletor de tema">
+        <div class="theme-switcher-label">Tema</div>
+        <button id="theme-light" class="theme-btn active" aria-label="Ativar modo claro" aria-pressed="true">
+            <span class="theme-icon-light"></span>Claro
+        </button>
+        <button id="theme-dark" class="theme-btn" aria-label="Ativar modo escuro" aria-pressed="false">
+            <span class="theme-icon-dark"></span>Escuro
+        </button>
+        <button id="theme-contrast" class="theme-btn" aria-label="Ativar alto contraste" aria-pressed="false">
+            <span class="theme-icon-contrast"></span>Contraste
+        </button>
+    </div>
 
     <!--
         FOOTER: Rodapé com informações institucionais
@@ -140,15 +158,17 @@
         SCRIPTS: Carregamento dos arquivos JavaScript
 
         ORDEM DE CARREGAMENTO (IMPORTANTE):
-        1. mock-data.js - Dados e função de inicialização do localStorage
-        2. router.js - Sistema de rotas SPA
-        3. validation.js - Sistema de validação avançada de formulários
-        4. masks.js - Máscaras de entrada (CPF, telefone, etc)
-        5. pages.js - Templates das páginas (parte 1)
-        6. pages2.js - Templates das páginas (parte 2)
-        7. app.js - Lógica principal da aplicação
-        8. app-features.js - Funcionalidades adicionais (doações, blog, admin)
+        1. themes.js - Sistema de temas (carrega primeiro para evitar flash)
+        2. mock-data.js - Dados e função de inicialização do localStorage
+        3. router.js - Sistema de rotas SPA
+        4. validation.js - Sistema de validação avançada de formulários
+        5. masks.js - Máscaras de entrada (CPF, telefone, etc)
+        6. pages.js - Templates das páginas (parte 1)
+        7. pages2.js - Templates das páginas (parte 2)
+        8. app.js - Lógica principal da aplicação
+        9. app-features.js - Funcionalidades adicionais (doações, blog, admin)
     -->
+    <script src="assets/js/themes.js"></script>
     <script src="assets/data/mock-data.js"></script>
     <script src="assets/js/router.js"></script>
     <script src="assets/js/validation.js"></script>
