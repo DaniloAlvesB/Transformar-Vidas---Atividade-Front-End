@@ -1,0 +1,33 @@
+{
+  "name": "ong-transformar-vidas",
+  "version": "3.0.0",
+  "description": "Plataforma web para gestão de ONGs - Projeto acadêmico de Desenvolvimento Front-end",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "python -m http.server 8000",
+    "dev:node": "npx http-server -p 8000",
+    "clean": "rimraf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/usuario/ong-transformar-vidas"
+  },
+  "keywords": [
+    "ong",
+    "spa",
+    "vanilla-javascript",
+    "accessibility",
+    "wcag",
+    "front-end"
+  ],
+  "author": "ONG Transformar Vidas",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "html-minifier-terser": "^7.2.0",
+    "http-server": "^14.1.1",
+    "rimraf": "^5.0.5",
+    "terser": "^5.27.0"
+  }
+}
