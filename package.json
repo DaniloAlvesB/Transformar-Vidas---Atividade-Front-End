@@ -1,6 +1,6 @@
 {
   "name": "ong-transformar-vidas",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Plataforma web para gestão de ONGs - Projeto acadêmico de Desenvolvimento Front-end",
   "main": "index.html",
   "scripts": {

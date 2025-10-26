@@ -5,6 +5,48 @@ Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+## [3.1.0] - 2025-10-26
+
+### Adicionado
+- **Acessibilidade WCAG 2.1 Level AA completa**
+- Skip navigation link para usuários de teclado
+- Focus indicators visíveis (outline 3px) em todos elementos interativos
+- Classe .sr-only para conteúdo exclusivo de leitores de tela
+- Suporte a prefers-reduced-motion para animações
+- Suporte a prefers-contrast: high para alto contraste do sistema
+- Sistema de temas acessíveis (claro, escuro, alto contraste)
+- Modo escuro com contraste 4.5:1 (WCAG AA)
+- Modo alto contraste com cores extremas para baixa visão
+- Theme switcher flutuante com botões de alternância
+- ThemeManager class para controle de temas
+- Salvamento de preferência de tema no localStorage
+- Respeito a preferências do sistema (prefers-color-scheme)
+- Atalho de teclado Alt+T para acesso rápido aos temas
+- Anúncios de mudança de tema para leitores de tela
+- Sistema de build para produção (build.js)
+- Minificação de CSS (redução ~27%)
+- Minificação de JavaScript (redução ~48%)
+- Minificação de HTML (redução ~26%)
+- package.json com dependências de build
+- Documentação completa de acessibilidade (ACESSIBILIDADE.md)
+- Guia de build e deploy para produção (PRODUCAO.md)
+- Documentação de GitFlow e commits semânticos (GITFLOW.md)
+- Instruções de deploy para GitHub Pages, Vercel, Netlify
+- Guia de testes de performance (Lighthouse, WebPageTest)
+
+### Modificado
+- CSS com melhorias de acessibilidade
+- Foco por teclado mais visível e consistente
+- Contraste de cores otimizado para WCAG AA
+- Transições suaves entre temas
+- Scripts carregam themes.js primeiro para evitar flash
+- README.md atualizado com informações de acessibilidade
+
+### Corrigido
+- Navegação por teclado em todos os elementos interativos
+- Ordem de tabulação lógica e previsível
+- ARIA attributes corrigidos e expandidos
+
 ## [3.0.0] - 2025-10-26
 
 ### Adicionado
