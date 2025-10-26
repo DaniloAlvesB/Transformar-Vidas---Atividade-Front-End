@@ -370,6 +370,113 @@ ul, ol {
 }
 
 /* ===========================================
+   2.5. ACESSIBILIDADE (WCAG 2.1 Level AA)
+   =========================================== */
+
+/* Skip Navigation Link - aparece apenas no foco por teclado */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-primary-600);
+    color: var(--color-white);
+    padding: var(--spacing-3) var(--spacing-6);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+    border-radius: 0 0 var(--border-radius-md) 0;
+    z-index: 10000;
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--color-accent-500);
+    outline-offset: 2px;
+}
+
+/* Melhorias de foco por teclado - mais visível */
+*:focus-visible {
+    outline: 3px solid var(--color-primary-500);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+}
+
+/* Botões e links interativos - foco melhorado */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--color-primary-500);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+/* Remove outline padrão quando não for foco por teclado */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Screen reader only - visível apenas para leitores de tela */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Screen reader only focusable - torna-se visível quando focado */
+.sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+/* Respeita preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Alto contraste - preparação para modo de alto contraste */
+@media (prefers-contrast: high) {
+    :root {
+        --color-primary-500: #0039a6;
+        --color-primary-600: #002d7f;
+        --color-secondary-500: #008000;
+        --color-secondary-600: #006400;
+        --color-gray-700: #000000;
+        --color-gray-800: #000000;
+    }
+
+    /* Aumenta contraste de bordas */
+    button,
+    input,
+    select,
+    textarea,
+    .card,
+    .btn {
+        border-width: var(--border-width-2);
+    }
+}
+
+/* ===========================================
    3. CLASSES UTILITÁRIAS
    =========================================== */
 
