@@ -1,0 +1,334 @@
+/*
+==============================================
+SISTEMA DE TEMAS - ACESSIBILIDADE
+==============================================
+
+Implementa temas acessíveis conforme WCAG 2.1 Level AA:
+- Modo Escuro (Dark Mode)
+- Alto Contraste (High Contrast)
+- Suporte a preferências do sistema
+
+Requisitos atendidos:
+- Contraste mínimo 4.5:1 para texto normal
+- Contraste mínimo 3:1 para texto grande
+- Elementos interativos claramente diferenciados
+
+==============================================
+*/
+
+/* ===========================================
+   MODO ESCURO (Dark Mode)
+   =========================================== */
+
+/* Variáveis do modo escuro */
+[data-theme="dark"] {
+    /* Cores de fundo invertidas */
+    --color-white: #0f172a;          /* Fundo escuro principal */
+    --color-black: #ffffff;          /* Texto claro */
+
+    /* Escala de cinza invertida para modo escuro */
+    --color-gray-50: #1e293b;        /* Fundo de cards */
+    --color-gray-100: #334155;       /* Fundo hover */
+    --color-gray-200: #475569;       /* Bordas */
+    --color-gray-300: #64748b;
+    --color-gray-400: #94a3b8;
+    --color-gray-500: #cbd5e1;       /* Texto secundário */
+    --color-gray-600: #e2e8f0;
+    --color-gray-700: #f1f5f9;       /* Texto principal */
+    --color-gray-800: #f8fafc;       /* Texto de destaque */
+    --color-gray-900: #ffffff;       /* Texto branco puro */
+    --color-gray-950: #ffffff;
+
+    /* Cores primárias mais claras para melhor contraste */
+    --color-primary-500: #60a5fa;    /* Azul mais claro */
+    --color-primary-600: #3b82f6;    /* Azul hover */
+    --color-primary-700: #2563eb;
+
+    /* Cores secundárias ajustadas */
+    --color-secondary-500: #34d399;  /* Verde mais claro */
+    --color-secondary-600: #10b981;  /* Verde hover */
+
+    /* Cores de acento ajustadas */
+    --color-accent-500: #fb923c;     /* Laranja mais suave */
+    --color-accent-600: #f97316;
+
+    /* Estados semânticos ajustados */
+    --color-success: #34d399;
+    --color-success-light: #064e3b;
+    --color-success-dark: #6ee7b7;
+
+    --color-error: #f87171;
+    --color-error-light: #7f1d1d;
+    --color-error-dark: #fca5a5;
+
+    --color-warning: #fbbf24;
+    --color-warning-light: #78350f;
+    --color-warning-dark: #fde047;
+
+    --color-info: #60a5fa;
+    --color-info-light: #1e3a8a;
+    --color-info-dark: #93c5fd;
+
+    /* Sombras adaptadas para modo escuro */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* Ajustes específicos de elementos no modo escuro */
+[data-theme="dark"] body {
+    background-color: var(--color-white);
+    color: var(--color-gray-700);
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+    background-color: var(--color-gray-50);
+    border-color: var(--color-gray-200);
+}
+
+[data-theme="dark"] .main-header {
+    background-color: var(--color-gray-50);
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+[data-theme="dark"] .main-footer {
+    background-color: var(--color-gray-50);
+    border-top: 1px solid var(--color-gray-200);
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] textarea:focus {
+    border-color: var(--color-primary-500);
+    background-color: var(--color-gray-100);
+}
+
+/* ===========================================
+   MODO ALTO CONTRASTE (High Contrast)
+   =========================================== */
+
+[data-theme="high-contrast"] {
+    /* Cores extremas para máximo contraste */
+    --color-white: #000000;          /* Fundo preto puro */
+    --color-black: #ffffff;          /* Texto branco puro */
+
+    /* Apenas preto e branco puro para cinzas */
+    --color-gray-50: #000000;
+    --color-gray-100: #1a1a1a;
+    --color-gray-200: #333333;
+    --color-gray-300: #666666;
+    --color-gray-400: #999999;
+    --color-gray-500: #cccccc;
+    --color-gray-600: #e0e0e0;
+    --color-gray-700: #f0f0f0;
+    --color-gray-800: #ffffff;
+    --color-gray-900: #ffffff;
+
+    /* Cores primárias com alto contraste */
+    --color-primary-500: #00ff00;    /* Verde limão - máximo contraste */
+    --color-primary-600: #00cc00;
+    --color-primary-700: #00aa00;
+
+    /* Cores secundárias */
+    --color-secondary-500: #00ffff;  /* Ciano */
+    --color-secondary-600: #00cccc;
+
+    /* Acento */
+    --color-accent-500: #ffff00;     /* Amarelo puro */
+    --color-accent-600: #ffcc00;
+
+    /* Estados com cores distintas */
+    --color-success: #00ff00;        /* Verde */
+    --color-error: #ff0000;          /* Vermelho puro */
+    --color-warning: #ffff00;        /* Amarelo puro */
+    --color-info: #00ffff;           /* Ciano */
+
+    /* Sombras desabilitadas para simplicidade */
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+    --shadow-xl: none;
+}
+
+/* Elementos no modo alto contraste */
+[data-theme="high-contrast"] body {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+[data-theme="high-contrast"] .card,
+[data-theme="high-contrast"] .modal-content {
+    background-color: #000000;
+    border: 3px solid #ffffff;
+}
+
+[data-theme="high-contrast"] .main-header {
+    background-color: #000000;
+    border-bottom: 3px solid #ffffff;
+}
+
+[data-theme="high-contrast"] .main-footer {
+    background-color: #000000;
+    border-top: 3px solid #ffffff;
+}
+
+[data-theme="high-contrast"] input,
+[data-theme="high-contrast"] select,
+[data-theme="high-contrast"] textarea {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+[data-theme="high-contrast"] button,
+[data-theme="high-contrast"] .btn {
+    border: 2px solid #ffffff;
+    font-weight: 700;
+}
+
+[data-theme="high-contrast"] a {
+    color: #00ff00;
+    text-decoration: underline;
+}
+
+[data-theme="high-contrast"] a:hover {
+    color: #00ffff;
+    background-color: #333333;
+}
+
+[data-theme="high-contrast"] *:focus-visible {
+    outline: 4px solid #ffff00 !important;
+    outline-offset: 2px;
+}
+
+/* ===========================================
+   PREFERÊNCIA DO SISTEMA
+   =========================================== */
+
+/* Aplica modo escuro automaticamente se preferência do sistema */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        /* Mesmas variáveis do [data-theme="dark"] */
+        --color-white: #0f172a;
+        --color-gray-50: #1e293b;
+        --color-gray-100: #334155;
+        --color-gray-700: #f1f5f9;
+        --color-gray-800: #f8fafc;
+        --color-primary-500: #60a5fa;
+        --color-secondary-500: #34d399;
+    }
+}
+
+/* ===========================================
+   BOTÕES DE ALTERNÂNCIA DE TEMA
+   =========================================== */
+
+.theme-switcher {
+    position: fixed;
+    bottom: var(--spacing-6);
+    right: var(--spacing-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    z-index: 1000;
+    background: var(--color-white);
+    padding: var(--spacing-3);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-gray-200);
+}
+
+.theme-switcher button {
+    padding: var(--spacing-2) var(--spacing-4);
+    background: var(--color-gray-100);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-gray-800);
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    white-space: nowrap;
+}
+
+.theme-switcher button:hover {
+    background: var(--color-gray-200);
+    transform: translateX(-2px);
+}
+
+.theme-switcher button:focus-visible {
+    outline: 3px solid var(--color-primary-500);
+    outline-offset: 2px;
+}
+
+.theme-switcher button.active {
+    background: var(--color-primary-500);
+    color: var(--color-white);
+    border-color: var(--color-primary-600);
+}
+
+.theme-switcher-label {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-gray-600);
+    margin-bottom: var(--spacing-1);
+    text-align: center;
+}
+
+/* Responsividade do theme switcher */
+@media (max-width: 768px) {
+    .theme-switcher {
+        bottom: var(--spacing-4);
+        right: var(--spacing-4);
+        padding: var(--spacing-2);
+    }
+
+    .theme-switcher button {
+        padding: var(--spacing-2) var(--spacing-3);
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* ===========================================
+   ÍCONES DE TEMA (Opcional - usando texto)
+   =========================================== */
+
+.theme-icon-light::before {
+    content: "☀️ ";
+}
+
+.theme-icon-dark::before {
+    content: "🌙 ";
+}
+
+.theme-icon-contrast::before {
+    content: "⚡ ";
+}
+
+/* ===========================================
+   TRANSIÇÕES DE TEMA
+   =========================================== */
+
+/* Transição suave entre temas (respeitando prefers-reduced-motion) */
+@media (prefers-reduced-motion: no-preference) {
+    body,
+    .card,
+    .main-header,
+    .main-footer,
+    input,
+    select,
+    textarea,
+    button {
+        transition: background-color var(--transition-base),
+                    color var(--transition-base),
+                    border-color var(--transition-base);
+    }
+}
