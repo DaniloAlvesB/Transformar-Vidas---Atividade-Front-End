@@ -1847,6 +1847,7 @@ section {
     overflow-y: auto;
     box-shadow: var(--shadow-xl);
     z-index: 2001;
+    padding: var(--spacing-6);
 }
 
 .modal-large {
@@ -2755,4 +2756,149 @@ section {
     background: var(--color-primary-light);
     border-radius: var(--border-radius-md);
     margin: var(--spacing-4) 0;
+}
+
+/* ===========================================
+   MODAL CONTENT SPECIFIC STYLES
+   =========================================== */
+
+/* Modal de Detalhes do Projeto */
+.project-detail {
+    padding: var(--spacing-4) 0;
+}
+
+.project-detail-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+    padding-bottom: var(--spacing-4);
+    border-bottom: 2px solid var(--color-gray-200);
+}
+
+.project-image-large {
+    font-size: 4rem;
+    line-height: 1;
+}
+
+.project-detail-header h2 {
+    margin: var(--spacing-2) 0 var(--spacing-1) 0;
+}
+
+.project-detail-content {
+    line-height: 1.8;
+}
+
+.project-detail-content p {
+    margin-bottom: var(--spacing-4);
+    color: var(--color-gray-700);
+}
+
+.project-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-4);
+    margin: var(--spacing-6) 0;
+    padding: var(--spacing-4);
+    background-color: var(--color-gray-50);
+    border-radius: var(--border-radius-md);
+}
+
+.project-stats .stat {
+    padding: var(--spacing-2);
+}
+
+.project-stats strong {
+    color: var(--color-gray-900);
+    display: block;
+    margin-bottom: var(--spacing-1);
+}
+
+/* Modal de Post do Blog */
+.post-detail {
+    padding: var(--spacing-4) 0;
+}
+
+.post-detail-header {
+    margin-bottom: var(--spacing-6);
+    padding-bottom: var(--spacing-4);
+    border-bottom: 2px solid var(--color-gray-200);
+}
+
+.post-icon-large {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: var(--spacing-3);
+    display: inline-block;
+}
+
+.post-detail-header h2 {
+    margin: var(--spacing-2) 0;
+}
+
+.post-meta {
+    color: var(--color-gray-600);
+    font-size: var(--font-size-sm);
+    margin: var(--spacing-2) 0;
+}
+
+.post-detail-content {
+    line-height: 1.8;
+    margin-bottom: var(--spacing-6);
+}
+
+.post-detail-content p {
+    margin-bottom: var(--spacing-4);
+    color: var(--color-gray-700);
+}
+
+.post-share {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding-top: var(--spacing-4);
+    border-top: 1px solid var(--color-gray-200);
+}
+
+.post-share strong {
+    color: var(--color-gray-900);
+}
+
+/* Modal de Doação */
+.donation-form h2 {
+    margin-bottom: var(--spacing-6);
+}
+
+/* Melhorias gerais de espaçamento em modais */
+.modal-content h2 {
+    margin-bottom: var(--spacing-4);
+}
+
+.modal-content h3 {
+    margin: var(--spacing-4) 0 var(--spacing-2) 0;
+}
+
+.modal-content .btn-lg {
+    margin-top: var(--spacing-4);
+}
+
+/* Responsividade das modais */
+@media (max-width: 640px) {
+    .modal-content {
+        padding: var(--spacing-4);
+        margin: var(--spacing-2);
+    }
+
+    .project-detail-header {
+        flex-direction: column;
+    }
+
+    .project-image-large {
+        font-size: 3rem;
+    }
+
+    .project-stats {
+        grid-template-columns: 1fr;
+    }
 }

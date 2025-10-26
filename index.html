@@ -16,7 +16,8 @@
     <title>ONG Transformar Vidas - Promovendo Mudanças Sociais</title>
 
     <!-- CSS Principal -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/validation-styles.css">
 
     <!-- Font do Google Fonts para melhor tipografia -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,14 +26,16 @@
 </head>
 <body>
     <!--
-        HEADER: Uso de elemento semântico <header> para o cabeçalho
-        Inclui navegação principal com acessibilidade (aria-labels)
+        HEADER: Elemento semântico <header> para o cabeçalho
+        Navegação principal com acessibilidade (aria-labels)
+
+        IMPORTANTE: Este header é fixo e aparece em todas as páginas do SPA
     -->
     <header class="main-header">
         <div class="container">
             <nav class="main-nav" role="navigation" aria-label="Navegação principal">
                 <div class="logo">
-                    <a href="index.html" aria-label="Página inicial - ONG Transformar Vidas">
+                    <a href="#/" aria-label="Página inicial - ONG Transformar Vidas">
                         <span class="logo-text">Transformar Vidas</span>
                     </a>
                 </div>
@@ -42,174 +45,37 @@
                     <span class="hamburger"></span>
                 </button>
 
-                <!-- Lista de navegação com tabindex para acessibilidade por teclado -->
+                <!-- Lista de navegação com roles para acessibilidade -->
                 <ul class="nav-menu" role="menubar">
-                    <li role="none"><a href="index.html" role="menuitem" class="active">Home</a></li>
-                    <li role="none"><a href="projetos.html" role="menuitem">Projetos</a></li>
-                    <li role="none"><a href="voluntariado.html" role="menuitem">Voluntariado</a></li>
-                    <li role="none"><a href="doacoes.html" role="menuitem">Doações</a></li>
-                    <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
-                    <li role="none"><a href="admin.html" role="menuitem" class="btn-admin">Admin</a></li>
+                    <li role="none"><a href="#/" role="menuitem" class="active">Home</a></li>
+                    <li role="none"><a href="#/projetos" role="menuitem">Projetos</a></li>
+                    <li role="none"><a href="#/voluntariado" role="menuitem">Voluntariado</a></li>
+                    <li role="none"><a href="#/doacoes" role="menuitem">Doações</a></li>
+                    <li role="none"><a href="#/blog" role="menuitem">Blog</a></li>
+                    <li role="none"><a href="#/admin" role="menuitem" class="btn-admin">Admin</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <!--
-        MAIN: Conteúdo principal da página usando elemento semântico <main>
-        Garante que leitores de tela identifiquem corretamente o conteúdo principal
+        MAIN: Conteúdo principal da aplicação
+
+        SPA (Single Page Application):
+        - Todo o conteúdo dinâmico é renderizado dentro de #app-content
+        - O router gerencia as mudanças de página sem recarregar
+        - Transições suaves entre páginas
     -->
-    <main>
-        <!-- HERO SECTION: Seção de destaque inicial -->
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 id="hero-title">Transformando vidas através da solidariedade</h1>
-                    <p class="hero-subtitle">Juntos podemos construir um futuro melhor para comunidades em situação de vulnerabilidade social</p>
-                    <div class="hero-actions">
-                        <a href="voluntariado.html" class="btn btn-primary">Seja Voluntário</a>
-                        <a href="doacoes.html" class="btn btn-secondary">Faça uma Doação</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO: Missão, Visão e Valores usando <section> semântico -->
-        <section class="mission-section" aria-labelledby="mission-title">
-            <div class="container">
-                <h2 id="mission-title" class="section-title">Nossa Essência</h2>
-
-                <!-- Grid de cards usando article para cada elemento independente -->
-                <div class="cards-grid">
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">🎯</div>
-                        <h3>Missão</h3>
-                        <p>Promover a transformação social através de projetos educacionais, culturais e de assistência, garantindo dignidade e oportunidades para comunidades em vulnerabilidade.</p>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">👁️</div>
-                        <h3>Visão</h3>
-                        <p>Ser referência nacional em projetos sociais inovadores, reconhecida pela transparência, eficiência e impacto positivo nas vidas transformadas.</p>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">💎</div>
-                        <h3>Valores</h3>
-                        <ul class="values-list">
-                            <li>Transparência e ética</li>
-                            <li>Respeito à diversidade</li>
-                            <li>Compromisso social</li>
-                            <li>Sustentabilidade</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO: Estatísticas de impacto -->
-        <section class="stats-section" aria-labelledby="stats-title">
-            <div class="container">
-                <h2 id="stats-title" class="section-title">Nosso Impacto</h2>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="15000">0</span>
-                        <span class="stat-label">Vidas Impactadas</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="42">0</span>
-                        <span class="stat-label">Projetos Ativos</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="320">0</span>
-                        <span class="stat-label">Voluntários</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="8">0</span>
-                        <span class="stat-label">Anos de Atuação</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO: Projetos em Destaque -->
-        <section class="featured-projects" aria-labelledby="projects-title">
-            <div class="container">
-                <h2 id="projects-title" class="section-title">Projetos em Destaque</h2>
-                <p class="section-subtitle">Conheça algumas de nossas iniciativas que estão transformando vidas</p>
-
-                <div class="projects-grid" id="featured-projects-list">
-                    <!-- Projetos serão carregados dinamicamente via JavaScript -->
-                </div>
-
-                <div class="section-cta">
-                    <a href="projetos.html" class="btn btn-primary">Ver Todos os Projetos</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO: Nossa Equipe -->
-        <section class="team-section" aria-labelledby="team-title">
-            <div class="container">
-                <h2 id="team-title" class="section-title">Nossa Equipe</h2>
-                <p class="section-subtitle">Pessoas dedicadas a fazer a diferença</p>
-
-                <div class="team-grid">
-                    <article class="team-member">
-                        <div class="member-photo" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                            <span class="member-initial">MR</span>
-                        </div>
-                        <h3>Maria Rodrigues</h3>
-                        <p class="member-role">Diretora Executiva</p>
-                        <p class="member-bio">15 anos de experiência em gestão de ONGs</p>
-                    </article>
-
-                    <article class="team-member">
-                        <div class="member-photo" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                            <span class="member-initial">JS</span>
-                        </div>
-                        <h3>João Silva</h3>
-                        <p class="member-role">Coordenador de Projetos</p>
-                        <p class="member-bio">Especialista em desenvolvimento social</p>
-                    </article>
-
-                    <article class="team-member">
-                        <div class="member-photo" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                            <span class="member-initial">AS</span>
-                        </div>
-                        <h3>Ana Santos</h3>
-                        <p class="member-role">Gerente de Voluntários</p>
-                        <p class="member-bio">Psicóloga social e mobilizadora comunitária</p>
-                    </article>
-
-                    <article class="team-member">
-                        <div class="member-photo" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                            <span class="member-initial">PC</span>
-                        </div>
-                        <h3>Pedro Costa</h3>
-                        <p class="member-role">Diretor Financeiro</p>
-                        <p class="member-bio">Contador e especialista em captação de recursos</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO: Call to Action -->
-        <section class="cta-section" aria-labelledby="cta-title">
-            <div class="container">
-                <h2 id="cta-title">Faça Parte dessa Transformação</h2>
-                <p>Sua contribuição pode mudar vidas. Seja através de voluntariado, doações ou compartilhando nosso trabalho.</p>
-                <div class="cta-buttons">
-                    <a href="voluntariado.html" class="btn btn-primary">Quero Ser Voluntário</a>
-                    <a href="doacoes.html" class="btn btn-secondary">Quero Doar</a>
-                </div>
-            </div>
-        </section>
+    <main id="app-content" style="transition: opacity 0.15s ease-in-out;">
+        <!-- O conteúdo das páginas será carregado dinamicamente aqui -->
+        <div style="text-align: center; padding: 100px 20px;">
+            <h2>Carregando...</h2>
+        </div>
     </main>
 
     <!--
-        FOOTER: Rodapé com informações institucionais e links importantes
-        Uso de elemento semântico <footer>
+        FOOTER: Rodapé com informações institucionais
+        Elemento semântico <footer> - aparece em todas as páginas
     -->
     <footer class="main-footer">
         <div class="container">
@@ -229,11 +95,11 @@
                 <div class="footer-section">
                     <h3>Links Rápidos</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="projetos.html">Projetos</a></li>
-                        <li><a href="voluntariado.html">Voluntariado</a></li>
-                        <li><a href="doacoes.html">Doações</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#/">Home</a></li>
+                        <li><a href="#/projetos">Projetos</a></li>
+                        <li><a href="#/voluntariado">Voluntariado</a></li>
+                        <li><a href="#/doacoes">Doações</a></li>
+                        <li><a href="#/blog">Blog</a></li>
                     </ul>
                 </div>
 
@@ -269,8 +135,24 @@
 
     <!--
         SCRIPTS: Carregamento dos arquivos JavaScript
-        Uso de defer para otimizar o carregamento da página
+
+        ORDEM DE CARREGAMENTO (IMPORTANTE):
+        1. mock-data.js - Dados e função de inicialização do localStorage
+        2. router.js - Sistema de rotas SPA
+        3. validation.js - Sistema de validação avançada de formulários
+        4. masks.js - Máscaras de entrada (CPF, telefone, etc)
+        5. pages.js - Templates das páginas (parte 1)
+        6. pages2.js - Templates das páginas (parte 2)
+        7. app.js - Lógica principal da aplicação
+        8. app-features.js - Funcionalidades adicionais (doações, blog, admin)
     -->
-    <script src="script.js" defer></script>
+    <script src="assets/data/mock-data.js"></script>
+    <script src="assets/js/router.js"></script>
+    <script src="assets/js/validation.js"></script>
+    <script src="assets/js/masks.js"></script>
+    <script src="assets/js/components/pages.js"></script>
+    <script src="assets/js/components/pages2.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/app-features.js"></script>
 </body>
 </html>

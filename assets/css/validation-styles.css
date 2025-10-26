@@ -1,0 +1,426 @@
+/*
+==============================================
+VALIDATION STYLES - Estilos de Validação
+==============================================
+
+Estilos para o sistema de validação avançada de formulários
+- Estados de erro e sucesso
+- Mensagens de feedback
+- Ícones visuais
+- Animações
+
+==============================================
+*/
+
+/* ========================================
+   FORM GROUPS - Base
+======================================== */
+
+.form-group {
+    position: relative;
+    margin-bottom: var(--spacing-4);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+}
+
+@media (max-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   INPUT STATES - Estados dos Inputs
+======================================== */
+
+/* Input com erro */
+.input-error,
+input.input-error,
+select.input-error,
+textarea.input-error {
+    border-color: #ef4444 !important;
+    background-color: #fef2f2;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.input-error:focus {
+    outline: none;
+    border-color: #dc2626 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+/* Input com sucesso */
+.input-success,
+input.input-success,
+select.input-success,
+textarea.input-success {
+    border-color: #10b981 !important;
+    background-color: #f0fdf4;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.input-success:focus {
+    outline: none;
+    border-color: #059669 !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+/* ========================================
+   ERROR MESSAGES - Mensagens de Erro
+======================================== */
+
+.field-error-message {
+    display: block;
+    color: #ef4444;
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-2);
+    animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   FIELD ICONS - Ícones de Validação
+======================================== */
+
+.field-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    pointer-events: none;
+    animation: iconAppear 0.3s ease-out;
+}
+
+@keyframes iconAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+.field-icon-error {
+    background-color: #ef4444;
+    color: white;
+}
+
+.field-icon-success {
+    background-color: #10b981;
+    color: white;
+}
+
+/* Ajuste para labels */
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-2);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+/* Input com ícone - adiciona padding à direita */
+.form-group:has(.field-icon) input,
+.form-group:has(.field-icon) select,
+.form-group:has(.field-icon) textarea {
+    padding-right: 40px;
+}
+
+/* ========================================
+   FORM VALIDATION SUMMARY - Resumo de Erros
+======================================== */
+
+.form-validation-summary {
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    border-left: 4px solid #ef4444;
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+    animation: slideDown 0.3s ease-out;
+}
+
+.form-validation-summary h4 {
+    color: #991b1b;
+    margin: 0 0 var(--spacing-2) 0;
+    font-size: var(--font-size-base);
+}
+
+.form-validation-summary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form-validation-summary li {
+    color: #dc2626;
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-1) 0;
+}
+
+.form-validation-summary li:before {
+    content: "• ";
+    margin-right: var(--spacing-2);
+}
+
+/* ========================================
+   SUCCESS MESSAGE - Mensagem de Sucesso
+======================================== */
+
+.form-success-message {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #10b981;
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+    color: #065f46;
+    animation: slideDown 0.3s ease-out;
+}
+
+/* ========================================
+   LOADING STATE - Estado de Carregamento
+======================================== */
+
+.form-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.form-loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--color-gray-200);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* ========================================
+   REQUIRED INDICATOR - Indicador de Obrigatório
+======================================== */
+
+.form-group label .required-indicator {
+    color: #ef4444;
+    margin-left: 2px;
+}
+
+/* ========================================
+   FIELD HINTS - Dicas de Preenchimento
+======================================== */
+
+.field-hint {
+    display: block;
+    color: var(--color-gray-600);
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-1);
+}
+
+/* ========================================
+   PASSWORD STRENGTH - Força da Senha
+======================================== */
+
+.password-strength {
+    height: 4px;
+    background-color: var(--color-gray-200);
+    border-radius: 2px;
+    margin-top: var(--spacing-2);
+    overflow: hidden;
+}
+
+.password-strength-bar {
+    height: 100%;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.password-strength-weak {
+    background-color: #ef4444;
+}
+
+.password-strength-medium {
+    background-color: #f59e0b;
+}
+
+.password-strength-strong {
+    background-color: #10b981;
+}
+
+/* ========================================
+   CHECKBOX/RADIO VALIDATION
+======================================== */
+
+.form-check-group {
+    position: relative;
+    margin-bottom: var(--spacing-4);
+}
+
+.form-check-group.has-error .form-check-label {
+    color: #ef4444;
+}
+
+.form-check-group .field-error-message {
+    margin-top: var(--spacing-2);
+    margin-left: 0;
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+======================================== */
+
+@media (max-width: 640px) {
+    .field-icon {
+        right: 8px;
+    }
+
+    .form-group:has(.field-icon) input,
+    .form-group:has(.field-icon) select {
+        padding-right: 35px;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+======================================== */
+
+/* Focus visible para navegação por teclado */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Screen reader only text */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ========================================
+   FORM NOTES
+======================================== */
+
+.form-note {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-600);
+    margin-top: var(--spacing-2);
+    text-align: center;
+}
+
+/* ========================================
+   INLINE FORM GROUPS
+======================================== */
+
+.form-group-inline {
+    display: flex;
+    gap: var(--spacing-3);
+    align-items: flex-start;
+}
+
+.form-group-inline input {
+    flex: 1;
+}
+
+.form-group-inline .btn {
+    white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+    .form-group-inline {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .form-group-inline input,
+    .form-group-inline .btn {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   ADMIN SPECIFIC VALIDATION STYLES
+======================================== */
+
+.admin-form .input-error {
+    background-color: #fef2f2;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-4);
+}
+
+.admin-table th {
+    background-color: var(--color-gray-100);
+    padding: var(--spacing-3);
+    text-align: left;
+    font-weight: var(--font-weight-semibold);
+    border-bottom: 2px solid var(--color-gray-300);
+}
+
+.admin-table td {
+    padding: var(--spacing-3);
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.admin-table tr:hover {
+    background-color: var(--color-gray-50);
+}
+
+/* ========================================
+   MODAL VALIDATION SPECIFIC
+======================================== */
+
+.modal .input-error {
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
